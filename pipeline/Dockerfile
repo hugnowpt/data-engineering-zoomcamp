@@ -17,8 +17,9 @@ RUN uv sync --locked
 
 # Copy application code
 ##COPY pipeline.py pipeline.py
-COPY ingest_data.py .
+###COPY ingest_data.py .
+COPY ingest_data_green.py .
 
 # Set entry point
 ##ENTRYPOINT ["uv", "run", "python", "pipeline.py"]
-ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_data_green.py"]
