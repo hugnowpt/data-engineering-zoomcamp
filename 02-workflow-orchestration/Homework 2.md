@@ -44,9 +44,25 @@ This answer was obtained using the following Kestra flow:
 
 ## Question 5: Yellow Taxi data for the March 2021
 How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
-SELECT count(*) FROM public.yellow_tripdata
-where filename = 'yellow_tripdata_2021-03.csv'
+
 
 <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/3696f0ae-9374-4544-a80b-0a5c0f7e331f" />
 
-#### Ans : 1,925,152
+```bash
+SELECT count(*) FROM public.yellow_tripdata
+where filename = 'yellow_tripdata_2021-03.csv'
+```
+
+#### Ans : 1,925,152 row
+
+## Question 6: Configure the timezone
+How would you configure the timezone to New York in a Schedule trigger?
+
+#### Ans : Add a `timezone` property set to `America/New_York` in the Schedule trigger configuration
+```bash
+triggers:
+  - id: daily_ny
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 9 * * *"
+    timezone: America/New_York
+```
