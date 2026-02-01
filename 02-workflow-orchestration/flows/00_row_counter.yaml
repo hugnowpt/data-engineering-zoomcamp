@@ -1,0 +1,59 @@
+id: 00-row-counter
+namespace: zoomcamp
+
+inputs:
+  - id: taxi
+    type: SELECT
+    displayName: Taxi Type
+    values:
+      - yellow
+      - green
+    defaults: yellow
+
+  - id: year
+    type: STRING
+    displayName: Year
+    defaults: "2020"
+
+tasks:
+  - id: count_all_rows
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+    containerImage: python:3.10
+    commands:
+      - pip install requests
+      - |
+        python -c '
+        import requests
+        import gzip
+
+        taxi_type = "{{inputs.taxi}}"
+        year = "{{inputs.year}}"
+        total_rows = 0
+
+        print(f"--- STARTING COUNT FOR {taxi_type.upper()} {year} ---")
+
+        for i in range(1, 13):
+            month = f"{i:02d}"
+            url = (
+                "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/"
+                f"{taxi_type}/{taxi_type}_tripdata_{year}-{month}.csv.gz"
+            )
+
+            try:
+                with requests.get(url, stream=True) as r:
+                    if r.status_code == 200:
+                        with gzip.open(r.raw, "rt") as f:
+                            lines = sum(1 for _ in f) - 1  # remove header
+                            print(f"Month {month}: {lines:,} rows")
+                            total_rows += lines
+                    else:
+                        print(f"Month {month}: File not found (Status {r.status_code})")
+            except Exception as e:
+                print(f"Month {month}: Error {e}")
+
+        print("-----------------------------------")
+        print(f"FINAL TOTAL: {total_rows:,}")
+        print("-----------------------------------")
+        '
