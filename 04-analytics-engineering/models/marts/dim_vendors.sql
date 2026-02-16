@@ -1,3 +1,4 @@
+
 -- Dimension table for taxi technology vendors
 -- Small static dimension defining vendor codes and their company names
 

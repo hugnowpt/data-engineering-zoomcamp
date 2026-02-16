@@ -1,3 +1,4 @@
+
 models:
   - name: dim_zones
     description: Taxi zone dimension table with location details
@@ -135,4 +136,4 @@ models:
         data_type: integer
       - name: payment_type_description
         description: Human-readable payment method description
-        data_type: string
+        data_type: STRING
