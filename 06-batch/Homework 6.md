@@ -25,8 +25,8 @@ Repartition the Dataframe to 4 partitions and save it to parquet.
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)?
 
 #### Ans : 
-25MB
-Reference: [yellow_tripdata2025-11_Repartition.py](yellow_tripdata2025-11_Repartition.py)
+- 25MB
+- Reference: [yellow_tripdata2025-11_Repartition.py](yellow_tripdata2025-11_Repartition.py)
 
 
 ## Question 3: Count records
