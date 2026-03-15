@@ -24,7 +24,7 @@ Read the November 2025 Yellow into a Spark Dataframe.
 Repartition the Dataframe to 4 partitions and save it to parquet.
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)?
 
-![result](06-batch/image_hw06/hw06_sparkQ2.jpg)
+![result](./image_hw06/hw06_sparkQ2.jpg)
 
 #### Ans : 
 - 25MB
