@@ -24,10 +24,9 @@ Read the November 2025 Yellow into a Spark Dataframe.
 Repartition the Dataframe to 4 partitions and save it to parquet.
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)?
 
-[yellow_tripdata2025-11_Repartition.py](yellow_tripdata2025-11_Repartition.py)
-
 #### Ans : 
 25MB
+`[yellow_tripdata2025-11_Repartition.py](yellow_tripdata2025-11_Repartition.py)`
 
 
 ## Question 3: Count records
