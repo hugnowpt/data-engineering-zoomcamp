@@ -14,6 +14,9 @@ For this homework we will be using the Yellow 2025-11 data from the official web
 - Create a local spark session
 - Execute spark.version.
 
+#### Pic : 
+![hw06_sparkQ1](./image_hw06/hw06_sparkQ1.jpg)
+
 #### Ans : 
 Spark Version : 4.1.1
 
@@ -24,7 +27,8 @@ Read the November 2025 Yellow into a Spark Dataframe.
 Repartition the Dataframe to 4 partitions and save it to parquet.
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)?
 
-![result](./image_hw06/hw06_sparkQ2.jpg)
+#### Pic : 
+![hw06_sparkQ2](./image_hw06/hw06_sparkQ2.jpg)
 
 #### Ans : 
 - 25MB
@@ -35,6 +39,9 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 How many taxi trips were there on the 15th of November?
 Consider only trips that started on the 15th of November.
 
+#### Pic : 
+![hw06_sparkQ3](./image_hw06/hw06_sparkQ3.jpg)
+
 #### Ans : 
 - 162,604
 - Reference: [yellow_tripdata2025-11_Trip15thNov.py](yellow_tripdata2025-11_Trip15thNov.py)
@@ -42,6 +49,9 @@ Consider only trips that started on the 15th of November.
 
 ## Question 4: Longest trip
 What is the length of the longest trip in the dataset in hours?
+
+#### Pic : 
+![hw06_sparkQ4](./image_hw06/hw06_sparkQ4.jpg)
 
 #### Ans : 
 - 90.6
@@ -51,6 +61,9 @@ What is the length of the longest trip in the dataset in hours?
 ## Question 5:  User Interface
 Spark's User Interface which shows the application's dashboard runs on which local port?
 
+#### Pic : 
+![hw06_sparkQ5](./image_hw06/hw06_sparkQ5.jpg)
+
 #### Ans : 
 - Port; 4040
 
@@ -59,6 +72,9 @@ Spark's User Interface which shows the application's dashboard runs on which loc
 Load the zone lookup data into a temp view in Spark:
 `wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv`
 Using the zone lookup data and the Yellow November 2025 data, what is the name of the LEAST frequent pickup location Zone?
+
+#### Pic : 
+![hw06_sparkQ6](./image_hw06/hw06_sparkQ6.jpg)
 
 #### Ans : 
 - Governor's Island/Ellis Island/Liberty Island
