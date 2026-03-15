@@ -26,7 +26,7 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 
 #### Ans : 
 - 25MB
-- Reference: [yellow_tripdata2025-11_Repartition.py](06-batch/yellow_tripdata2025-11_Repartition.py)
+- Reference: [yellow_tripdata2025-11_Repartition.py](yellow_tripdata2025-11_Repartition.py)
 
 
 ## Question 3: Count records
