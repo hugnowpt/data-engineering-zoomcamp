@@ -18,7 +18,8 @@ For this homework we will be using the Yellow 2025-11 data from the official web
 ![hw06_sparkQ1](./image_hw06/hw06_sparkQ1.jpg)
 
 #### Ans : 
-Spark Version : 4.1.1
+- Spark Version : 4.1.1
+- Reference: [test_spark.py](test_spark.py)
 
 
 ## Question 2: Yellow November 2025
