@@ -34,21 +34,23 @@ How many taxi trips were there on the 15th of November?
 Consider only trips that started on the 15th of November.
 
 #### Ans : 
-162,604
+- 162,604
+- Reference: [yellow_tripdata2025-11_Trip15thNov.py](yellow_tripdata2025-11_Trip15thNov.py)
 
 
 ## Question 4: Longest trip
 What is the length of the longest trip in the dataset in hours?
 
 #### Ans : 
-90.6
+- 90.6
+- Reference: [yellow_tripdata2025-11_Longest-trip.py](yellow_tripdata2025-11_Longest-trip.py)
 
 
 ## Question 5:  User Interface
 Spark's User Interface which shows the application's dashboard runs on which local port?
 
 #### Ans : 
-Port; 4040
+- Port; 4040
 
 
 ## Question 6: Least frequent pickup location zone
@@ -59,3 +61,4 @@ Using the zone lookup data and the Yellow November 2025 data, what is the name o
 #### Ans : 
 - Governor's Island/Ellis Island/Liberty Island
 - Arden Heights
+- Reference: [yellow_tripdata2025-11_JoinZone.py](yellow_tripdata2025-11_JoinZone.py)
