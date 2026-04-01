@@ -1,0 +1,12 @@
+retail_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: retail-oltp-analytics-pipeline
+      dataset: retail_dataset
+      keyfile: /opt/airflow/dbt/retail-oltp-analytics-pipeline-a08679cbc8ef.json
+      threads: 1
+      timeout_seconds: 300
+      location: asia-southeast1

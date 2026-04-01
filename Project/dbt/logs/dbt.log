@@ -1,0 +1,37 @@
+[0m02:03:34.951515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78eaf068df40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78eaf068c7d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78eaef950530>]}
+
+
+============================== 02:03:34.956466 | d731a448-138e-4fee-9fa1-6f876a73a7c4 ==============================
+[0m02:03:34.956466 [info ] [MainThread]: Running with dbt=1.11.7
+[0m02:03:34.957229 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'warn_error': 'None', 'quiet': 'False', 'log_path': 'logs', 'write_json': 'True', 'empty': 'None', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'log_format': 'default', 'invocation_command': 'dbt init retail_dbt', 'debug': 'False', 'static_parser': 'True', 'no_print': 'None', 'use_experimental_parser': 'False', 'profiles_dir': '/home/codespace/.dbt', 'introspect': 'True', 'version_check': 'True', 'partial_parse': 'True', 'indirect_selection': 'eager'}
+[0m02:03:34.968877 [info ] [MainThread]: Creating dbt configuration folder at /home/codespace/.dbt
+[0m02:03:34.970581 [debug] [MainThread]: Starter project path: /home/codespace/.python/current/lib/python3.12/site-packages/dbt/include/starter_project
+[0m02:03:34.975992 [info ] [MainThread]: 
+Your new dbt project "retail_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m02:03:34.976792 [info ] [MainThread]: Setting up your profile.
+[0m02:07:36.905857 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770fff414dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770ffef6de50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770fff0e0bc0>]}
+
+
+============================== 02:07:36.911255 | 3a1a5930-ad8d-45f9-b348-1bc580e6712c ==============================
+[0m02:07:36.911255 [info ] [MainThread]: Running with dbt=1.11.7
+[0m02:07:36.912371 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'log_format': 'default', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'use_colors': 'True', 'log_path': 'logs', 'profiles_dir': '/home/codespace/.dbt', 'target_path': 'None', 'quiet': 'False', 'printer_width': '80', 'use_experimental_parser': 'False', 'version_check': 'True', 'write_json': 'True', 'introspect': 'True', 'invocation_command': 'dbt init retail_dbt', 'static_parser': 'True', 'fail_fast': 'False', 'debug': 'False', 'no_print': 'None', 'partial_parse': 'True'}
+[0m02:07:36.926283 [info ] [MainThread]: A project called retail_dbt already exists here.
+[0m02:07:36.928065 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.08673345, "process_in_blocks": "0", "process_kernel_time": 0.271659, "process_mem_max_rss": "118036", "process_out_blocks": "8", "process_user_time": 2.869403}
+[0m02:07:36.929003 [debug] [MainThread]: Command `dbt init` succeeded at 02:07:36.928847 after 0.09 seconds
+[0m02:07:36.929798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770fff970c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770ffef6de50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x770fff1665d0>]}
+[0m02:07:36.930630 [debug] [MainThread]: Flushing usage events
+[0m02:07:37.970273 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: airflow-postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"
+
+  airflow-init:
+    build: .         
+    container_name: airflow-init
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_secret_key_12345
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../dbt:/opt/airflow/dbt
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["airflow db init && airflow users create --username airflow --password airflow --firstname admin --lastname user --role Admin --email admin@example.com"]
+
+  airflow-webserver:
+    build: .         
+    container_name: airflow-webserver
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_secret_key_12345
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../dbt:/opt/airflow/dbt
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    build: .      
+    container_name: airflow-scheduler
+    depends_on:
+      - airflow-webserver
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_secret_key_12345
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ../dbt:/opt/airflow/dbt
+    command: scheduler
