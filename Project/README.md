@@ -75,7 +75,7 @@ To maximize query performance and minimize costs (Slot time/Bytes scanned) in Bi
 
 ## 🤖 Workflow Orchestration (Airflow)
 The entire transformation process is automated using a Python-based DAG.
-- DAG ID: `retail_pipeline.py`
+- DAG ID: [`retail_pipeline.py`](retail_pipeline.py)
 - Schedule: Runs every 2 minutes (configured for demo purposes) or @daily for production.
 - Task Flow:
   1.  `dbt_staging`: Validates and cleans raw data.
@@ -89,6 +89,6 @@ The final dashboard provides an executive-level overview of retail health:
 - `Market Share`: Treemap visualization showing Revenue distribution across UK regions (Central, West, North, etc.).
 - `Product Performance`: Horizontal bar chart identifying the Top 5 Departments by Sales.
 - `Temporal Filters`: Drop-down controls for Year, Month, and Day for granular drill-downs.
-- Link : [https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5]
-<img width="1437" height="1070" alt="image" src="https://github.com/user-attachments/assets/3de286b7-576a-4aa5-af26-f95b2ba93c1a" />
+- Link : [https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5](https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5)
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/3de286b7-576a-4aa5-af26-f95b2ba93c1a" />
 
