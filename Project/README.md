@@ -51,7 +51,7 @@ We use the Elite Retail Transaction Dataset - UK, consisting of:
   ####  1. Staging Layer (models/staging):
  The staging layer acts as the entry point for our data into the warehouse. Each staging model corresponds to a raw source table, where we perform "light" transformations such as renaming columns for consistency, casting data types, and basic deduplication.
  Key Staging Models:
- - [`stg_sales.sql`](Project/dbt/retail_dbt/models/staging/stg_sales.sql) : Cleans the core transactional data, ensuring sale_date is properly cast as a DATE type.
+ - [`stg_sales.sql`](Project/dbt/retail_dbt/models/staging/) : Cleans the core transactional data, ensuring sale_date is properly cast as a DATE type.
  - [`stg_customers.sql`](Project/dbt/retail_dbt/models/staging/stg_customer.sql) : Standardizes customer profiles and loyalty tier naming.
  - [`stg_products.sql`](Project/dbt/retail_dbt/models/staging/stg_products.sql) : Standardizes product descriptions and retail pricing formats.
  - [`stg_categories.sql`](Project/dbt/retail_dbt/models/staging/stg_categories.sql) : Maps product categories to their respective departments.
