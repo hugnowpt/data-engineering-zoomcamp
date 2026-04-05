@@ -75,7 +75,7 @@ To maximize query performance and minimize costs (Slot time/Bytes scanned) in Bi
 
 ## 🤖 Workflow Orchestration (Airflow)
 The entire transformation process is automated using a Python-based DAG.
-- DAG ID: [`retail_pipeline.py`](retail_pipeline.py)
+- DAG ID: [`retail_pipeline.py`](/Project/airflow/dags/retail_pipeline.py)
 - Schedule: Runs every 2 minutes (configured for demo purposes) or @daily for production.
 - Task Flow:
   1.  `dbt_staging`: Validates and cleans raw data.
