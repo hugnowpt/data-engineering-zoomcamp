@@ -161,7 +161,7 @@ docker-compose up -d
 - Ensure the data source points to `retail_dataset.fact_sales` table in BigQuery.
 - Interact with the filters (`Year, Month, Region) to explore the data.
 
-
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/3de286b7-576a-4aa5-af26-f95b2ba93c1a" />
 
 
 
