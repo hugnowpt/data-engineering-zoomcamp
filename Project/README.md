@@ -77,11 +77,16 @@ To maximize query performance and minimize costs (Slot time/Bytes scanned) in Bi
 The entire transformation process is automated using a Python-based DAG.
 - DAG ID: [`retail_pipeline.py`](/Project/airflow/dags/retail_pipeline.py)
 - Schedule: Runs every 2 minutes (configured for demo purposes) or @daily for production.
-- Task Flow:
-  1.  `dbt_staging`: Validates and cleans raw data.
-  2.  `dbt_marts`: Builds the final analytical fact tables.
+- Workflow Strategy: Follow an ELT (Extract, Load, Transform) process
+   - <b>Extract</b>: Raw transactional data is sourced from the Elite Retail Operational System (CSV format).
+   - <b>Load</b>: The raw files are first staged in Google Cloud Storage (GCS) as my Data Lake, then loaded into <b>BigQuery</b> using the `GCSToBigQueryOperator`.
+   - <b>Transform</b>: Once the data is in BigQuery, `dbt` takes over to transform the raw, siloed data into a structured Star Schema optimized for analytics.
+- Task Flow Breakdown:
+  1.  `GCSToBigQueryOperator` (Extract & Load):
+  2.  `dbt_staging` (Transform - Layer 1) : Runs dbt models to clean the raw landing table (e.g., casting types, renaming columns).
+  3.  `dbt_marts` (Transform - Layer 2): Joins cleaned staging tables to create the final `fact_sales` table, implementing business logic and KPIs.
 
-  - Dependency: `dbt_staging` >> `dbt_marts`
+  - Dependency: `GCSToBigQueryOperator` >> `dbt_staging` >> `dbt_marts`
  
 ## 📊 Business Intelligence (Looker Studio)
 The final dashboard provides an executive-level overview of retail health:
