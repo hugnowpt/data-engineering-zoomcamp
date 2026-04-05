@@ -51,13 +51,13 @@ We use the Elite Retail Transaction Dataset - UK, consisting of:
   ####  1. Staging Layer (models/staging):
  The staging layer acts as the entry point for our data into the warehouse. Each staging model corresponds to a raw source table, where we perform "light" transformations such as renaming columns for consistency, casting data types, and basic deduplication.
  Key Staging Models:
- - `stg_sales.sql`: Cleans the core transactional data, ensuring sale_date is properly cast as a DATE type.
- - `stg_customers.sql`: Standardizes customer profiles and loyalty tier naming.
- - `stg_products.sql`: Standardizes product descriptions and retail pricing formats.
- - `stg_categories.sql`: Maps product categories to their respective departments.
- - `stg_stores.sql`: Cleans store metadata including location and region names.
- - `stg_staff.sql`: Manages employee records associated with transactions.
- - `stg_suppliers.sql`: Cleans supplier-level attributes for supply chain analysis.
+ - [`stg_sales.sql`](Project/dbt/retail_dbt/models/staging/stg_sales.sql): Cleans the core transactional data, ensuring sale_date is properly cast as a DATE type.
+ - [`stg_customers.sql`](Project/dbt/retail_dbt/models/staging/stg_customer.sql): Standardizes customer profiles and loyalty tier naming.
+ - [`stg_products.sql`](Project/dbt/retail_dbt/models/staging/stg_products.sql): Standardizes product descriptions and retail pricing formats.
+ - [`stg_categories.sql`](Project/dbt/retail_dbt/models/staging/stg_categories.sql): Maps product categories to their respective departments.
+ - [`stg_stores.sql`](Project/dbt/retail_dbt/models/staging/stg_stores.sql): Cleans store metadata including location and region names.
+ - [`stg_staff.sql`](Project/dbt/retail_dbt/models/staging/stg_staff.sql): Manages employee records associated with transactions.
+ - [`stg_suppliers.sql`](Project/dbt/retail_dbt/models/staging/stg_suppliers.sql): Cleans supplier-level attributes for supply chain analysis.
  - Command: `dbt run --select staging`
  
  #### 2. Marts Layer (models/marts):
@@ -82,7 +82,7 @@ The entire transformation process is automated using a Python-based DAG.
    - <b>Load</b>: The raw files are first staged in Google Cloud Storage (GCS) as my Data Lake, then loaded into <b>BigQuery</b> using the `GCSToBigQueryOperator`.
    - <b>Transform</b>: Once the data is in BigQuery, `dbt` takes over to transform the raw, siloed data into a structured Star Schema optimized for analytics.
 - Task Flow Breakdown:
-  1.  `GCSToBigQueryOperator` (Extract & Load):
+  1.  `GCSToBigQueryOperator` (Extract & Load): Action: Ingests the sales_raw_oltp.csv from the GCS Bucket (elite_retail_data_lake) into the BigQuery dataset.
   2.  `dbt_staging` (Transform - Layer 1) : Runs dbt models to clean the raw landing table (e.g., casting types, renaming columns).
   3.  `dbt_marts` (Transform - Layer 2): Joins cleaned staging tables to create the final `fact_sales` table, implementing business logic and KPIs.
 
