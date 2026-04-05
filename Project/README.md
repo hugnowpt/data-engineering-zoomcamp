@@ -26,17 +26,17 @@ The pipeline leverages the Google Cloud Platform (GCP) ecosystem:
 We use the Elite Retail Transaction Dataset - UK, consisting of:
 
 
-1. [`customers_master.csv`](/Project/data/customers_master.csv) : Contains customer demographic and profile information.
+1. [customers_master.csv](/Project/data/customers_master.csv) : Contains customer demographic and profile information.
 
-2. [`products_catalog.csv`](/Project/data/products_catalog.csv) : Detailed product-level data including pricing, supplier, and attributes.
+2. [products_catalog.csv](/Project/data/products_catalog.csv) : Detailed product-level data including pricing, supplier, and attributes.
 
-3. [`product_categories.csv`](/Project/data/product_categories.csv) : Hierarchical classification of products into categories and departments.
+3. [product_categories.csv](/Project/data/product_categories.csv) : Hierarchical classification of products into categories and departments.
 
-4. [`store_locations.csv](/Project/data/store_locations.csv) : Information about store branches including size, region, and management.
+4. [store_locations.csv](/Project/data/store_locations.csv) : Information about store branches including size, region, and management.
 
-5. [`staff_records.csv`](/Project/data/staff_records.csv) : Employee data associated with stores and roles.
+5. [staff_records.csv](/Project/data/staff_records.csv) : Employee data associated with stores and roles.
 
-6. [`sales_raw_oltp.csv`](/Project/data/sales_raw_oltp.csv) : Transactional dataset capturing sales events including customer purchases, products, stores, and timestamps.
+6. [sales_raw_oltp.csv](/Project/data/sales_raw_oltp.csv) : Transactional dataset capturing sales events including customer purchases, products, stores, and timestamps.
 
 #### Data Relationships
 - `customers_master.customer_id` → `sales_raw_oltp.customer_id`
