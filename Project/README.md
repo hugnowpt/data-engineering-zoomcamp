@@ -92,3 +92,71 @@ The final dashboard provides an executive-level overview of retail health:
 - Link : [https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5](https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5)
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/3de286b7-576a-4aa5-af26-f95b2ba93c1a" />
 
+## 💻 Reproducibility
+To run this pipeline and connect it to your Google Cloud environment, follow these instructions carefully.
+
+### 1. Prerequisites
+- Google Cloud Account: A project created on GCP Console.
+- Docker & Docker Compose: Installed on machine.
+
+### 2. Cloud Setup (Google Cloud Platform)
+- Create a Cloud Storage (GCS) Bucket:
+   - Name: `retail-oltp-analytics-pipeline`.
+   - Upload all raw CSV files from the `data/` folder into a sub-folder named `raw/`.
+     <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/b4e7baf4-2f65-49f2-acb8-62873c092163" />
+
+
+- Create a BigQuery Dataset:
+   - Dataset ID: `retail_dataset`.
+   - Location: `asia-southeast`.
+
+- Service Account Credentials:
+  - Go to <b>IAM & Admin > Service Accounts</b>.
+  - Create a Service Account with roles: `BigQuery Admin` and `Storage Admin`.
+  - Generate a <b>JSON Key</b> and download it.
+  - Rename the file to <b>google_credentials.json</b> and place it in the root directory of this project.
+ 
+### 3. Launching the Pipeline (Airflow & dbt)
+This project is fully containerized. To start Airflow and its dependencies:
+
+- <b>Navigate to the project directory</b>:
+Open terminal and move to the folder containing the docker-compose.yaml file:
+```Bash
+cd Project/airflow/
+```
+
+- <b>Build and Start</b>:
+Run the command to pull images and start services in the background:
+```Bash
+docker-compose up -d
+```
+
+- <b>Access Airflow UI</b>:
+   - Open browser and go to `http://localhost:8080`.
+   - Default credentials: Username: `airflow` and Password: `airflow`.
+
+- <b>Activate & Run</b>:
+   - Locate the DAG named `retail_pipeline`.
+   - Unpause the DAG (toggle to On).
+   - <b>Automated Execution</b>: Once unpaused, the DAG will automatically run based on its defined schedule (`*/2 * * * *` — every 2 minutes).
+   - <b>Manual Trigger (Optional)</b>: If you want to see the results immediately without waiting for the next scheduled interval, click the <b>Play (Trigger DAG)</b> button.
+   - The DAG will then orchestrate the execution of `dbt_staging` followed by `dbt_marts` to build the <b>fact_sales</b> table in BigQuery.
+ 
+  <img width="900" height="500" alt="image" src="https://github.com/user-attachments/assets/2a82f6cc-3eb3-4ce6-a2c3-6baf25cf37cd" />
+
+### 4. Verify Transformations in BigQuery
+ Once the Airflow DAG completes (turns dark green):
+   - Go to the <b>BigQuery Console</b>.
+   - Check the `retail_dataset` dataset.
+   - See the Staging Tables (e.g., `stg_sales`) and the final Marts Table `(fact_sales)`.
+     <img width="952" height="383" alt="image" src="https://github.com/user-attachments/assets/7ffca98f-fa25-4427-b8f2-807f18710f2f" />
+
+### 5. Accessing the Dashboard
+- Open the Looker Studio Link : [https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5](https://lookerstudio.google.com/reporting/b44fa890-0e52-4179-9e4b-fa98d5cc2ef5)
+- Ensure the data source points to `retail_dataset.fact_sales` table in BigQuery.
+- Interact with the filters (`Year, Month, Region) to explore the data.
+
+
+
+
+
